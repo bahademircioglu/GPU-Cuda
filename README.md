@@ -1,4 +1,4 @@
-#Vector Addition 2 Compare CPU and GPU
+# Vector Addition 2 Compare CPU and GPU
 
 
 Vector Addition Kernel: The CUDA kernel vecAdd is defined to add three vectors (A, B, and C) element-wise and store the result in vector D. Each thread processes one element.
