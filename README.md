@@ -1,3 +1,5 @@
+This repo contains GPU Programming (Cuda) examples. You may find explanation of different files/projects below.
+
 # Vector Addition
 
 CUDA Kernel Implementation:
