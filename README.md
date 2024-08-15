@@ -46,6 +46,7 @@ Comparison:
 The experiment is repeated for different vector sizes (N = 2^10, N = 2^12, N = 2^14).
 The performance results, including the execution time for each vector size and the speed-up, are printed to the console.
 
+
 # Histogram Computation
 
 Error Checking and Time Measurement:
@@ -97,3 +98,38 @@ Testing with Different Sizes:
 
 The code runs the performance measurement for several different input and filter sizes. These sizes are predefined in the sizes and filter_sizes lists.
 For each combination of input size and filter size, the code prints the time taken by the CPU and GPU to perform the convolution.
+
+
+# Median Filter Implementation
+
+Median Filter Kernel on GPU:
+
+The medianFilterKernel function is a CUDA kernel that applies a 3x3 median filter to a given 2D array of integers on the GPU.
+Each thread calculates the median for one pixel by gathering the values from its 3x3 neighborhood, sorting them, and then picking the middle value as the median.
+The boundary pixels are handled with zero-padding, meaning that any neighbors outside the image boundaries are considered to have a value of zero.
+
+Median Filter on CPU:
+
+The medianFilterHost function applies the same 3x3 median filter to a 2D array on the CPU.
+Similar to the GPU implementation, it gathers the neighborhood values, sorts them, and then selects the median.
+
+Performance Measurement:
+
+The measureTime function is used to measure the execution time of both the GPU and CPU implementations using CUDA events.
+Execution times are printed for both the device (GPU) and host (CPU).
+
+Array Comparison:
+
+The compareArrays function checks if the outputs from the GPU and CPU implementations are identical.
+
+Main Program Flow:
+
+The main function initializes the necessary arrays on both the host and device, filling the input array with random values.
+The GPU kernel is launched to perform the median filtering, and the results are transferred back to the host.
+The same filtering is then done on the CPU.
+The results from the GPU and CPU are compared, and execution times are reported.
+Finally, memory is freed on both the host and device.
+
+Key Outputs:
+The program prints the execution time for both the device (GPU) and host (CPU).
+It checks and reports whether the results from the GPU and CPU implementations are identical.
